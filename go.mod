@@ -1,3 +1,3 @@
-module calculadora
+module calculator
 
 go 1.19

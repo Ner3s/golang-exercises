@@ -1,32 +1,17 @@
 package main
 
 import (
+	"calculator/operators"
 	"fmt"
 	"os"
 	"os/exec"
 )
 
-func sum(x, y float64) float64 {
-	return x + y
-}
-
-func sub(x, y float64) float64 {
-	return x - y
-}
-
-func div(x, y float64) float64 {
-	return x / y
-}
-
-func mul(x, y float64) float64 {
-	return x * y
-}
-
 func main() {
 	var running, operator int = 1, 1
 	var num1, num2 float64
 
-	for running > 0 {
+	for running >= 1 {
 		cmd := exec.Command("clear")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
@@ -53,13 +38,13 @@ func main() {
 		fmt.Print("Resultado: ")
 		switch operator {
 		case 1:
-			fmt.Println(sum(num1, num2))
+			fmt.Println(operators.Sum(num1, num2))
 		case 2:
-			fmt.Println(sub(num1, num2))
+			fmt.Println(operators.Subtraction(num1, num2))
 		case 3:
-			fmt.Println(div(num1, num2))
+			fmt.Println(operators.Multiply(num1, num2))
 		case 4:
-			fmt.Println(mul(num1, num2))
+			fmt.Println(operators.Divide(num1, num2))
 		default:
 			fmt.Println("Nenhum operador selecionado!!!")
 		}
